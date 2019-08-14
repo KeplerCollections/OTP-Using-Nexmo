@@ -47,12 +47,12 @@ public class NewMessageActivity extends MVPActivity<AppLogic.NewMessageLogic> im
             onBackPressed();
             return;
         }
-        otp=String.valueOf(new Random().nextInt(6));
+        otp=getRandomNumberString();
         mSendMessage = findViewById(R.id.send_message);
         mContactDetails = findViewById(R.id.contact_details);
         mContent = findViewById(R.id.content);
         mContactDetails.setText(Html.fromHtml("<big><b>Send To : </b></big>" +
-                contact.getFirst_name()+" "+contact.getLast_name()+ " - "+contact.getMobile() + "<br><br>"
+                contact.getFirst_name()+" "+contact.getLast_name()+ ", "+contact.getMobile() + "<br><br>"
         ));
         mSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +90,15 @@ public class NewMessageActivity extends MVPActivity<AppLogic.NewMessageLogic> im
         }
     }
 
+    public static String getRandomNumberString() {
+        // It will generate 6 digit random Number.
+        // from 0 to 999999
+        Random rnd = new Random();
+        int number = rnd.nextInt(999999);
+
+        // this will convert any number sequence into 6 character.
+        return String.format("%06d", number);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

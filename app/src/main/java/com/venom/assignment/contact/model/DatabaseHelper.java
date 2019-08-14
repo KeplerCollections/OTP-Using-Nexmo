@@ -77,8 +77,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 mList.add(new Message(
                         cursor.getString(cursor.getColumnIndex(Constants.name)),
-                        cursor.getString(cursor.getColumnIndex(Constants.otp)),
-                        cursor.getString(cursor.getColumnIndex(COLUMN_TIMESTAMP))
+                        cursor.getString(cursor.getColumnIndex(COLUMN_TIMESTAMP)),
+                        cursor.getString(cursor.getColumnIndex(Constants.otp))
                 ));
             } while (cursor.moveToNext());
         }

@@ -51,7 +51,7 @@ public class MessageHistoryAdapter extends RecyclerView.Adapter<MessageHistoryAd
         final Message message= mList.get(position);
         holder.mImageView.setVisibility(View.GONE);
         holder.mTitle.setText(message.getName());
-        holder.mDes.setText(message.getOtp());
+        holder.mDes.setText("OTP : "+message.getOtp());
         holder.mTime.setText(message.getTime());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
