@@ -10,12 +10,6 @@ public class Contact implements Parcelable  {
     private String mobile;
 
 
-    public Contact(String first_name, String last_name, String mobile) {
-        this.first_name=first_name;
-        this.last_name=last_name;
-        this.mobile=mobile;
-    }
-
     protected Contact(Parcel in) {
         first_name = in.readString();
         last_name = in.readString();

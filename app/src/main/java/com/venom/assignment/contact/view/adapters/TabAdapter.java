@@ -9,7 +9,7 @@ import com.venom.assignment.contact.view.ContactFragment;
 import com.venom.assignment.contact.view.MessageHistoryFragment;
 
 public class TabAdapter extends FragmentPagerAdapter {
-    private static final String mTITLES[] = {Constants.CONTACTS, Constants.MESSAGES};
+    private static final String[] mTITLES = {Constants.CONTACTS, Constants.MESSAGES};
     private static int NUM_ITEMS = 2;
 
     public TabAdapter(FragmentManager fragmentManager) {

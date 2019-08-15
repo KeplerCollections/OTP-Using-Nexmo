@@ -24,8 +24,8 @@ public class NewMessagePresenter extends MVPImpl<AppLogic.NewMessageView> implem
 
 
     @Override
-    public void sendMessage(Message message) {
-        DatabaseHelper db=new DatabaseHelper(view.getAppContext());
+    public void sendMessage(final Message message) {
+        final DatabaseHelper db=new DatabaseHelper(view.getAppContext());
 
         ApiInterface sendSMSapiInterface =
                 ApiClient.getClient().create(ApiInterface.class);
@@ -36,7 +36,7 @@ public class NewMessagePresenter extends MVPImpl<AppLogic.NewMessageView> implem
             @Override
             public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
                 try {
-                    Log.d(TAG, String.valueOf(response.code()));
+//                    Log.d(TAG, String.valueOf(response.code()));
 
                     if (response.code() == 200 && Integer.parseInt(response.body().getMessages()[0].getStatus()) == 0) {
 //                    if (response.code() == 200) {
@@ -59,7 +59,7 @@ public class NewMessagePresenter extends MVPImpl<AppLogic.NewMessageView> implem
                     }
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
 //                    Log.e(TAG, e.getLocalizedMessage());
                     sendResponse(e.getLocalizedMessage());
                 }
