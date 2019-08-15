@@ -3,7 +3,7 @@ package com.venom.assignment.contact.model;
 public class Constants {
     public static final String CONTACTS = "Contacts";
     public static final String MESSAGES = "Messages";
-    public static final String HI = " Hi, Your OTP is:";
+    public static final String HI = "\nHi, Your OTP is : ";
 
     //params
     public static final String first_name = "first_name";

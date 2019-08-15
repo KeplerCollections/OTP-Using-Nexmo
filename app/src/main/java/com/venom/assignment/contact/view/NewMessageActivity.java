@@ -60,7 +60,10 @@ public class NewMessageActivity extends MVPActivity<AppLogic.NewMessageLogic> im
                 if(validateAllFields()) {
                     showProgrressDialog();
                     presenter.sendMessage(new Message(contact.getFirst_name()+" "+contact.getLast_name(),
-                            contact.getMobile(),otp,mContent.getText().toString().concat(HI).concat(otp)));
+                            contact.getMobile(),otp,mContent.getText().toString().concat(HI).concat(otp+"\n")));
+//                    presenter.sendMessage(new Message(contact.getFirst_name()+" "+contact.getLast_name(),
+//                            "918604527430",otp,mContent.getText().toString().concat(HI).concat(otp)));
+
                 }
 
             }

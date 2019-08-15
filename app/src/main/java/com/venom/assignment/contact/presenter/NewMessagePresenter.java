@@ -36,8 +36,10 @@ public class NewMessagePresenter extends MVPImpl<AppLogic.NewMessageView> implem
             @Override
             public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
                 try {
-//                    Log.d(TAG, String.valueOf(response.code()));
+                    Log.d(TAG, String.valueOf(response.code()));
+
                     if (response.code() == 200 && Integer.parseInt(response.body().getMessages()[0].getStatus()) == 0) {
+//                    if (response.code() == 200) {
 //                        Log.d(TAG, response.body().toString());
 //                        Log.d(TAG, response.body().getMessages().toString());
 //                        Log.d(TAG, response.body().getMessageCount());
@@ -48,6 +50,7 @@ public class NewMessagePresenter extends MVPImpl<AppLogic.NewMessageView> implem
 //                            Log.d(TAG, response.body().getMessages()[0].getRemainingBalance());
 //                            Log.d(TAG, response.body().getMessages()[0].getMessagePrice());
 //                            Log.d(TAG, response.body().getMessages()[0].getNetwork());
+//                        }
                         db.insert(message);
                         sendResponse("Message sent successfully");
                     } else {
@@ -56,7 +59,7 @@ public class NewMessagePresenter extends MVPImpl<AppLogic.NewMessageView> implem
                     }
 
                 } catch (Exception e) {
-//                    e.printStackTrace();
+                    e.printStackTrace();
 //                    Log.e(TAG, e.getLocalizedMessage());
                     sendResponse(e.getLocalizedMessage());
                 }
